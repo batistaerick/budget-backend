@@ -3,8 +3,8 @@ package com.erick.finance.services;
 import com.erick.finance.clients.CreditClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -13,8 +13,8 @@ public class CreditService {
 
     private final CreditClient creditClient;
 
-    public List<Double> getTotalExpenses(@PathVariable String userID) {
-        return creditClient.getTotalExpenses(userID);
+    public List<Double> getExpenses(String userID, LocalDate start, LocalDate end) {
+        return creditClient.getExpenses(userID, start, end);
     }
 
 }

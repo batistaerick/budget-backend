@@ -35,17 +35,21 @@ public class CreditController {
     }
 
     @GetMapping("/find-between")
-    public ResponseEntity<List<Credit>> findByUserIdAndDateTimeBetween(@RequestParam String userId,
-                                                                       @DateTimeFormat(pattern = "dd/MM/yyyy")
-                                                                       @RequestParam LocalDate start,
-                                                                       @DateTimeFormat(pattern = "dd/MM/yyyy")
-                                                                       @RequestParam LocalDate end) {
-        return ResponseEntity.ok(service.findByUserIdAndDateTimeBetween(userId, start, end));
+    public ResponseEntity<List<Credit>> findByUserIdAndDateBetween(@RequestParam String userId,
+                                                                   @DateTimeFormat(pattern = "dd/MM/yyyy")
+                                                                   @RequestParam LocalDate start,
+                                                                   @DateTimeFormat(pattern = "dd/MM/yyyy")
+                                                                   @RequestParam LocalDate end) {
+        return ResponseEntity.ok(service.findByUserIdAndDateBetween(userId, start, end));
     }
 
-    @GetMapping("/expenses-of-one-year/{userID}")
-    public ResponseEntity<List<Double>> getTotalExpenses(@PathVariable String userID) {
-        return ResponseEntity.ok(service.getExpensesOfOneYear(userID));
+    @GetMapping("/expenses")
+    public ResponseEntity<List<Double>> getExpenses(@RequestParam String userID,
+                                                    @DateTimeFormat(pattern = "dd/MM/yyyy")
+                                                    @RequestParam LocalDate start,
+                                                    @DateTimeFormat(pattern = "dd/MM/yyyy")
+                                                    @RequestParam LocalDate end) {
+        return ResponseEntity.ok(service.getExpenses(userID, start, end));
     }
 
 }

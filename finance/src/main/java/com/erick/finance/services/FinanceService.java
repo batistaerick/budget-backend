@@ -5,6 +5,7 @@ import com.erick.finance.dtos.UserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -14,10 +15,13 @@ public class FinanceService {
     private final CreditService creditService;
     private final UserService userService;
 
-    public List<FinanceDTO> monthlyAmountOfOneYear(String userID) {
-        List<Double> creditExpenses = creditService.getTotalExpenses(userID);
+    public List<FinanceDTO> getMonthlyAmount(String userID, LocalDate end) {
+        LocalDate now = LocalDate.now();
+        LocalDate start = LocalDate.of(now.getYear(), now.getMonth().plus(1), 1);
+
+        List<Double> creditExpenses = creditService.getExpenses(userID, start, end);
         UserDTO userDTO = userService.findById(userID);
-        Double totalExpenses = userDTO.getExpenses().stream().mapToDouble(value -> value).sum();
+        Double totalExpenses = userDTO.getExpenses().stream().mapToDouble(Double::doubleValue).sum();
 
         return creditExpenses.stream().map(credit -> {
             FinanceDTO financeDTO = new FinanceDTO();

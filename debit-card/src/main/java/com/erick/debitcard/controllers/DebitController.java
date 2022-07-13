@@ -34,7 +34,7 @@ public class DebitController {
                                                                       @RequestParam LocalDate start,
                                                                       @DateTimeFormat(pattern = "dd/MM/yyyy")
                                                                       @RequestParam LocalDate end) {
-        return ResponseEntity.ok(service.findByUserIdAndDateTimeBetween(userId, start, end));
+        return ResponseEntity.ok(service.findByUserIdAndDateBetween(userId, start, end));
     }
 
 }

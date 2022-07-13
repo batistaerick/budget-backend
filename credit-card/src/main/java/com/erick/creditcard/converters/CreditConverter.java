@@ -11,7 +11,7 @@ public class CreditConverter {
         Credit entity = new Credit();
         entity.setName(dto.getName());
         entity.setValue(dto.getValue());
-        entity.setDateTime(dto.getDateTime());
+        entity.setDate(dto.getDate());
         entity.setInstallment(dto.getInstallment());
         entity.setUserId(dto.getUserId());
         return entity;
@@ -21,7 +21,7 @@ public class CreditConverter {
         CreditDTO dto = new CreditDTO();
         dto.setName(entity.getName());
         dto.setValue(entity.getValue());
-        dto.setDateTime(entity.getDateTime());
+        dto.setDate(entity.getDate());
         dto.setInstallment(entity.getInstallment());
         dto.setUserId(entity.getUserId());
         return dto;

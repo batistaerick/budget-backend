@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CreditRepository extends MongoRepository<Credit, String> {
 
-    List<Credit> findByUserIdAndDateTimeBetween(String userId, LocalDate start, LocalDate end);
+    List<Credit> findByUserIdAndDateBetween(String userId, LocalDate start, LocalDate end);
 
     List<Credit> findByUserId(String userID);
 

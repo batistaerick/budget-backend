@@ -21,7 +21,7 @@ public class Credit {
     private Double value;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate dateTime;
+    private LocalDate date;
 
     private Integer installment;
 

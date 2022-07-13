@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface DebitRepository extends MongoRepository<Debit, String> {
 
-    List<Debit> findByUserIdAndDateTimeBetween(String userId, LocalDate start, LocalDate end);
+    List<Debit> findByUserIdAndDateBetween(String userId, LocalDate start, LocalDate end);
 
 }

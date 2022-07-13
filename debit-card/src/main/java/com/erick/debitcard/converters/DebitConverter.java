@@ -11,7 +11,7 @@ public class DebitConverter {
         Debit entity = new Debit();
         entity.setName(dto.getName());
         entity.setValue(dto.getValue());
-        entity.setDateTime(dto.getDateTime());
+        entity.setDate(dto.getDate());
         entity.setUserId(dto.getUserId());
         return entity;
     }
@@ -20,7 +20,7 @@ public class DebitConverter {
         DebitDTO dto = new DebitDTO();
         dto.setName(entity.getName());
         dto.setValue(entity.getValue());
-        dto.setDateTime(entity.getDateTime());
+        dto.setDate(entity.getDate());
         dto.setUserId(entity.getUserId());
         return dto;
     }

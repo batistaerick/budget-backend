@@ -28,8 +28,8 @@ public class DebitService {
         return repository.findAll();
     }
 
-    public List<Debit> findByUserIdAndDateTimeBetween(String userId, LocalDate start, LocalDate end) {
-        return repository.findByUserIdAndDateTimeBetween(userId, start, end);
+    public List<Debit> findByUserIdAndDateBetween(String userId, LocalDate start, LocalDate end) {
+        return repository.findByUserIdAndDateBetween(userId, start.minusDays(1), end.plusDays(1));
     }
 
 }
