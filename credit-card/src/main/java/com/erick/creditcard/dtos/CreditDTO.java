@@ -12,10 +12,11 @@ public class CreditDTO {
 
     private String id;
     private String name;
-    private Double value;
+    private Double amount;
+    private Double installmentValue;
+    private Integer installment;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate date;
-    private Integer installment;
     private String userId;
 
 }

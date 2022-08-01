@@ -22,7 +22,7 @@ public class CreditService {
 
     public void save(CreditDTO dto) {
         userService.findById(dto.getUserId());
-        dto.setValue(dto.getValue() / dto.getInstallment());
+        dto.setInstallmentValue(dto.getAmount() / dto.getInstallment());
         for (int i = 0; i < dto.getInstallment(); i++) {
             dto.setDate(dto.getDate().plusMonths(1));
             repository.save(converter.dtoToEntity(dto));
@@ -49,7 +49,7 @@ public class CreditService {
             int counter = i;
             monthlyExpenses.add(credits.stream()
                     .filter(credit -> credit.getDate().getMonth() == LocalDate.now().plusMonths(counter).getMonth())
-                    .mapToDouble(Credit::getValue).sum());
+                    .mapToDouble(Credit::getInstallmentValue).sum());
         }
         return monthlyExpenses;
     }

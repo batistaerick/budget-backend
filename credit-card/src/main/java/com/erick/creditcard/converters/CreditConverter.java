@@ -10,9 +10,10 @@ public class CreditConverter {
     public Credit dtoToEntity(CreditDTO dto) {
         Credit entity = new Credit();
         entity.setName(dto.getName());
-        entity.setValue(dto.getValue());
-        entity.setDate(dto.getDate());
+        entity.setAmount(dto.getAmount());
         entity.setInstallment(dto.getInstallment());
+        entity.setInstallmentValue(dto.getInstallmentValue());
+        entity.setDate(dto.getDate());
         entity.setUserId(dto.getUserId());
         return entity;
     }
@@ -20,9 +21,10 @@ public class CreditConverter {
     public CreditDTO entityToDTO(Credit entity) {
         CreditDTO dto = new CreditDTO();
         dto.setName(entity.getName());
-        dto.setValue(entity.getValue());
-        dto.setDate(entity.getDate());
+        dto.setAmount(entity.getAmount());
         dto.setInstallment(entity.getInstallment());
+        dto.setInstallmentValue(entity.getInstallmentValue());
+        dto.setDate(entity.getDate());
         dto.setUserId(entity.getUserId());
         return dto;
     }
