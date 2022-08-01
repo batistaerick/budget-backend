@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
 import java.util.List;
 
-@FeignClient(name = "credit", url = "localhost:8081", path = "/credits")
+@FeignClient(name = "credit-card", path = "/credits")
 public interface CreditClient {
 
     @GetMapping("/expenses")

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
-@FeignClient(name = "user", url = "localhost:8080", path = "/users")
+@FeignClient(name = "user", path = "/users")
 public interface UserClient {
 
     @PutMapping("/decrease-amount")
